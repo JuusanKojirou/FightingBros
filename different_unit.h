@@ -23,6 +23,7 @@ private:
 	move_type type;
 public:
 	ATdogface(AToriginal_state state, move_type ori_type, int ori_size, int ori_HP, int ori_portrait);
+	move_type dogface_get_type();
 };
 class AThero :public ATunit{
 private:
