@@ -1,6 +1,7 @@
 #ifndef DIFFERENT_UNIT_H
 #define DIFFERENT_UNIT_H
 #include "units.h"
+//移动方式，正常，加速，闪现
 enum move_type
 {
 	run,rush,flash
