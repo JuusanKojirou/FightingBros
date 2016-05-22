@@ -27,13 +27,13 @@ private:
 	std::list<ATdogface> dogface_information;
 	int unit_ID;
 public:
-	ATjudgement(ATmap initial_map);
-	void judgement_add_dogface();
-	void judgement_add_attack(ATattack new_attack);
-	void judgement_get_signal(int charater_ID, int signal_type, int value_1, double value_2);
-	void judgement_attacks();
-	void judgement_check_state();
-	void judgement_check_position();
+	ATjudgement(ATmap initial_map);//C
+	void judgement_add_dogface(ATdogface new_dogface);//L
+	void judgement_add_attack(ATattack new_attack); //L
+	void judgement_get_signal(int charater_ID, int signal_type, int value_1, double value_2);//C
+	void judgement_attacks();//L
+	void judgement_check_state();//L
+	void judgement_check_position();//C
 
 
 };
