@@ -30,6 +30,7 @@ public:
 	int* element_get_position();
 	int element_get_speed();
 	int element_get_damage();
+	double element_get_direction();
 	int element_get_ID();
 };
 #endif // !ELEMENTS_H
