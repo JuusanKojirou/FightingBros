@@ -11,12 +11,13 @@ struct AThero_state
 	int attack_speed;
 	int rotating_speed;
 	int size;
+	int hero_ID;
 	int HP, max_HP;
 	int portrait;
-	int present_speed, normal_speed, max_speed;//速度和速度上限
+	int speed[2];//速度和速度上限
 	double direction;//方向，存储角度
 	int damage;//伤害
-	int *position;//位置
+	int position[2];//位置
 };
 class ATdogface :public ATunit{
 private:
