@@ -11,6 +11,8 @@ private:
 public:
 	ATunit(AToriginal_state state,int ori_size,int ori_HP,int ori_portrait);
 	int unit_be_hurt(int damage,attack_buff buff);
-	void unit_check_state();//如果buff=0，change_mode=RESTORE，调用element_change函数
+	int unit_check_state();//如果buff=0，change_mode=RESTORE，调用element_change函数
+	int* unit_get_HP();
+	int unit_get_portrait();
 };
 #endif // !UNITS_H
