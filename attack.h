@@ -13,7 +13,7 @@ enum attack_buff{
 struct ATattack_state{
 	attack_type type;
 	attack_buff* buff;
-	int owner;//攻击发出者
+	int belong;//攻击发出者
 	int range;//攻击范围
 	int duration;//攻击持续时间，近战和技能
 };
@@ -23,8 +23,8 @@ private:
 	int range;
 	int duration;
 	attack_buff *buff;
-	int owner;//判定伤害时不伤害发出攻击的人
+	int belong;//判定伤害时不伤害发出攻击的人
 public:
-	ATattack(AToriginal_state state,ATattack_state attack);//返回ATattack类，包括所有信息
+	ATattack(const AToriginal_state* ori_state,ATattack_state attack_state):ATelements(ori_state){};//返回ATattack类，包括所有信息
 };
 #endif // !ATTACK_H

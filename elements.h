@@ -4,6 +4,9 @@
 #define	BUFF 0;
 #define CHANGE 1;
 #define	RESULT_ERROR 250;
+#define	RESULT_OK 66;
+#define MAX_SPEED 20;
+#define MAX_DAMAGE 1000;
 
 struct AToriginal_state
 {

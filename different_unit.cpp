@@ -1,24 +1,35 @@
 #include "different_unit.h"
-
-ATdogface ATdogface::ATdogface(AToriginal_state state, move_type ori_type, int ori_size, int ori_HP, int ori_portrait){
-	ATunit(AToriginal_state state, int ori_size,int ori_HP, int ori_portrait);
+//different_unit--dogface
+ATdogface::ATdogface(const AToriginal_state* ori_state, ATunit_state unit_state,move_type ori_type):ATunit(ori_state,unit_state){
 	type = ori_type;
 }
 
-move_type dogface_get_type(){
+move_type ATdogface::dogface_get_type(){
 	return type;
 }
 
-AThero AThero::AThero(AThero_state state){
-	attack_speed = state.attack_speed;
-	rotating_speed = state.rotating_speed;
-	
-	AToriginal_state hero_original_state;
-	hero_original_state.ID_number = state.hero_ID;
-	hero_original_state.position = state.position;
-	hero_original_state.direction = state.direction;
-	hero_original_state.damage = state.damage;
-	hero_original_state.speed = state.speed;
-	ATunit(hero_original_state, size, HP, ///这里开始)
+
+//different_unit--hero
+AThero::AThero(const AToriginal_state* ori_state, ATunit_state unit_state,AThero_state hero_state):ATunit(ori_state,unit_state){
+	normal_attack_speed = hero_state.normal_attack_speed;
+	present_attack_speed = hero_state.present_attack_speed;
+	rotating_speed = hero_state.rotating_speed;
+	ATunit ATunit(ori_state,unit_state);
+}
+int  AThero::hero_change_attack_speed(int change_time, int apup){   //ap means attack speed
+	if( (apup == 0)&&(change_time == -1) ){
+		present_attack_speed = normal_attack_speed;
+		return RESTORE;
+	}
+	else if(change_time == -1){
+		normal_attack_speed += apup;
+		present_attack_speed = normal_attack_speed;
+		return CHANGE;
+	}else if(change_time > 0){
+		present_attack_speed += apup;
+		return 	BUFF;
+	}else{
+		return RESULT_ERROR;
+	}
 }
 
