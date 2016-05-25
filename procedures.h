@@ -15,6 +15,9 @@
 #define CIRCLE_X 0
 #define CIRCLE_Y 1
 #define CIRCLE_R 3
+#define	POSITION_OK 40
+#define POSITION_ERROR 45
+#include <math.h>
 #include <vector>
 #include <list>
 #include <string>
@@ -43,9 +46,9 @@ private:
 	std::vector<ATmap_obstacle> obstacle_information;
 	int unit_ID;//´Ó5¿ªÊ¼
 	int max_x, max_y;
-	int* judgement_rectangle(ATmap_obstacle rectangle_obstacle,int *pp,int size);
-	int* judgement_circle(ATmap_obstacle circle_obstacle,int *pp,int size);
-	int* judgement_map_edge(int *pp, int size);
+	int judgement_rectangle(ATmap_obstacle rectangle_obstacle,int *pp,int size);
+	int judgement_circle(ATmap_obstacle circle_obstacle,int *pp,int size);
+	int judgement_map_edge(int *pp, int size);
 public:
 	ATjudgement(ATmap initial_map);//C
 	void judgement_add_dogface(ATdogface new_dogface);//L

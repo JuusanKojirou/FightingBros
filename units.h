@@ -2,6 +2,8 @@
 #define	UNITS_H
 #include "elements.h"
 #include "attack.h"
+#define STUN 1
+#define NOT_STUN 0
 class ATunit:public ATelements{
 private:
 	int size;
@@ -14,5 +16,7 @@ public:
 	int unit_check_state();//如果buff=0，change_mode=RESTORE，调用element_change函数
 	int* unit_get_HP();
 	int unit_get_portrait();
+	int unit_get_size();
+	int unit_get_buff();
 };
 #endif // !UNITS_H
