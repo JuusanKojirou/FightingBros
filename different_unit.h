@@ -16,7 +16,7 @@ class ATdogface :public ATunit{
 private:
 	move_type type;
 public:
-	ATdogface(const AToriginal_state* ori_state, ATunit_state unit_state,move_type ori_type):ATunit(ori_state,unit_state){};
+	ATdogface(const AToriginal_state* ori_state, ATunit_state unit_state,move_type ori_type);
 	move_type dogface_get_type();
 };
 class AThero :public ATunit{
@@ -25,7 +25,7 @@ private:
 	int present_attack_speed;
 	int rotating_speed;
 public:
-	AThero(const AToriginal_state* ori_state,ATunit_state unit_state,AThero_state state):ATunit(ori_state,unit_state){};
+	AThero(const AToriginal_state* ori_state,ATunit_state unit_state,AThero_state state);
 	int hero_change_attack_speed(int change_time, int apup);
 	
 	

@@ -1,12 +1,12 @@
 #ifndef ELEMENTS_H
-#define ELENENTS_H
+#define ELEMENTS_H
 #define RESTORE -1;
 #define	BUFF 0;
 #define CHANGE 1;
 #define	RESULT_ERROR 250;
 #define	RESULT_OK 66;
 #define MAX_SPEED 20;
-#define MAX_DAMAGE 1000;
+#define MAX_DAMAGE 20;
 
 struct AToriginal_state
 {
@@ -26,9 +26,9 @@ private:
 	int *position;//位置
 public:
 	ATelements(const AToriginal_state* origin_state);//状态初始化
-	int element_change_speed(int change_mode,int speedup);//change_mode=CHANGE表示永久改变,改变normal和present；BUFF表示临时改变，只改变present；speedup=0且change_mode=-RESTORE表示恢复之前速度（也可以自己定义）
+	int element_change_speed(int change_mode,int change_speed);//change_mode=CHANGE表示永久改变,改变normal和present；BUFF表示临时改变，只改变present；speedup=0且change_mode=-RESTORE表示恢复之前速度（也可以自己定义）
 	void element_change_position(int* p);//*p包括x和y轴的坐标
-	int element_change_damage(int change_mode, int damageup);//同速度
+	int element_change_damage(int change_mode, int change_damage);//同速度
 	int element_change_direction(double degree);//改变方向
 	int* element_get_position();
 	int element_get_speed();
@@ -36,4 +36,5 @@ public:
 	double element_get_direction();
 	int element_get_ID();
 };
-#endif // !ELEMENTS_H
+
+#endif

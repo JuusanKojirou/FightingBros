@@ -1,3 +1,4 @@
+
 #ifndef PROCEDURES_H
 #define PROCEDURES_H
 #define SHAPE_RECTANGLE 4
@@ -6,6 +7,7 @@
 #define ROTATE_CIR 1
 #define	ROTATE_ANTICIR 2
 #define RELEASE_ATTACK 3
+#define Pi 3.1415 
 #include <vector>
 #include <list>
 #include <string>
@@ -20,12 +22,18 @@ struct ATmap{
 	std::vector<ATmap_obstacle>load_map;
 	std::vector<ATcharacter> load_charater;
 };
+struct ATattackAndTime{
+	ATattack attack;
+	int timeRemained;
+};
 class ATjudgement{
 private:
-	std::list<ATattack> attack_information;
+	// std::list<ATattack> attack_information;
+	std::list<ATattackAndTime> attack_information;
 	std::list<ATcharacter> character_information;
 	std::list<ATdogface> dogface_information;
 	int unit_ID;
+	void judgement_attacks_impdamage(std::list<ATattackAndTime>::iterator attackIter, std::list<ATcharacter>::iterator charaIter);
 public:
 	ATjudgement(ATmap initial_map);//C
 	void judgement_add_dogface(ATdogface new_dogface);//L

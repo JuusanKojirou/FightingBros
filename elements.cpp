@@ -22,37 +22,37 @@ void ATelements::element_change_position(int* p){
 //change_time=-1表示永久改变，其余表示改变时间，speedup=0且change_time=-1表示恢复之前速度（也可以自己定义）
 
 
-int ATelements::element_change_damage(int change_time, int damageup){
-	if( (damageup == 0)&&(change_time == -1) ){
+int ATelements::element_change_damage(int change_time, int change_damage){
+	if(change_time == -1){
 		present_damage = normal_damage;
 		return RESTORE;
 	}
-	else if(change_time == -1){
-		normal_damage += damageup;
+	else if(change_time == -2){
+		normal_damage =change_damage;
 		if(normal_damage > max_damage)
 			normal_damage = max_damage;
 		present_damage = normal_damage;
 		return CHANGE;
 	}else if(change_time > 0){
-		present_damage += damageup;
+		present_damage =change_damage;
 		return 	BUFF;
 	}else{
 		return RESULT_ERROR;
 	}
 }
-int ATelements::element_change_speed(int change_time, int speedup){
-	if( (speedup == 0)&&(change_time == -1) ){
+int ATelements::element_change_speed(int change_time, int change_speed){
+	if(change_time == -1){
 		present_speed = normal_speed;
 		return RESTORE;
 	}
-	else if(change_time == -1){
-		normal_speed += speedup;
+	else if(change_time == -2){
+		normal_speed =change_speed;
 		if(normal_speed > max_speed)
 			normal_speed = max_speed;
 		present_speed = normal_speed;
 		return CHANGE;
 	}else if(change_time > 0){
-		present_speed += speedup;
+		present_speed =change_speed;
 		return 	BUFF;
 	}else{
 		return RESULT_ERROR;
